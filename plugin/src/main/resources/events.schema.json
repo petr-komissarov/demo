@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "eventName": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "actionType": {
+        "type": "string"
+      },
+      "payload": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "orderId": {
+            "type": "string"
+          },
+          "shippingMethod": {
+            "type": "string"
+          },
+          "trackingNumber": {
+            "type": "string"
+          },
+          "estimatedDelivery": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    },
+    "required": [
+      "id",
+      "eventName",
+      "timestamp",
+      "actionType",
+      "payload"
+    ]
+  }
+}
