@@ -1,0 +1,33 @@
+name: publish.ci
+run-name: publish
+
+on:
+    workflow_dispatch:
+
+concurrency:
+    cancel-in-progress: false
+    group: ${{ github.workflow }}
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout sources
+                uses: actions/checkout@v6
+
+            -   name: Install java
+                uses: actions/setup-java@v5
+                with:
+                    distribution: ${{ vars.JAVA_DISTRIBUTION }}
+                    java-version: ${{ vars.JAVA_VERSION }}
+
+            -   name: Install gradle
+                uses: gradle/actions/setup-gradle@v5
+                with:
+                    gradle-version: ${{ vars.GRADLE_VERSION }}
+
+            -   name: Publish plugin
+                env:
+                    GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
+                    GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
+                run: ./gradlew publishPlugins

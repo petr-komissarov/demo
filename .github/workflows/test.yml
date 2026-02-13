@@ -1,0 +1,39 @@
+name: test.ci
+run-name: test
+
+on:
+    pull_request:
+    workflow_dispatch:
+
+concurrency:
+    cancel-in-progress: false
+    group: ${{ github.workflow }}
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout sources
+                uses: actions/checkout@v6
+
+            -   name: Install java
+                uses: actions/setup-java@v5
+                with:
+                    distribution: ${{ vars.JAVA_DISTRIBUTION }}
+                    java-version: ${{ vars.JAVA_VERSION }}
+
+            -   name: Install gradle
+                uses: gradle/actions/setup-gradle@v5
+                with:
+                    gradle-version: ${{ vars.GRADLE_VERSION }}
+
+            -   name: Run tests
+                run: ./gradlew test
+
+            -   name: Archive reports
+                uses: actions/upload-artifact@v7
+                with:
+                    if-no-files-found: ignore
+                    name: reports
+                    path: plugin*/build/reports/cucumber.html
+                    retention-days: ${{ vars.ARTIFACT_RETENSION_DAYS }}
