@@ -1,0 +1,40 @@
+[versions]
+cucumber = "7.34.2"           #  https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+datafaker = "2.5.4"           #  https://mvnrepository.com/artifact/net.datafaker/datafaker
+exposed = "1.0.0"             #  https://mvnrepository.com/artifact/org.jetbrains.exposed/exposed-core
+gradle = "9.3.0"              #  https://docs.gradle.org/current/userguide/compatibility.html#kotlin
+gson = "2.13.2"               #  https://mvnrepository.com/artifact/com.google.code.gson/gson
+h2 = "2.4.240"                #  https://mvnrepository.com/artifact/com.h2database/h2
+java = "21"                   #  https://adoptium.net/temurin/releases/?version=21&os=any&arch=any
+junit5 = "6.0.2"              #  https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+kafka-client = "4.1.1"        #  https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+kotlin = "2.2.21"             #  https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+kotlin-coroutines = "1.10.2"  #  https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
+kotlin-logging = "7.0.14"     #  https://mvnrepository.com/artifact/io.github.oshai/kotlin-logging-jvm
+mockk = "1.14.9"              #  https://mvnrepository.com/artifact/io.mockk/mockk
+okhttp3 = "5.3.2"             #  https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+plugin = "1.0.0"              #  https://github.com/petr-komissarov/demo/releases
+
+[libraries]
+cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-junit-platform-engine = { module = "io.cucumber:cucumber-junit-platform-engine", version.ref = "cucumber" }
+datafaker = { module = "net.datafaker:datafaker", version.ref = "datafaker" }
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+h2 = { module = "com.h2database:h2", version.ref = "h2" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
+junit-platform-suite = { module = "org.junit.platform:junit-platform-suite", version.ref = "junit5" }
+kafka-client = { module = "org.apache.kafka:kafka-clients", version.ref = "kafka-client" }
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlin-logging" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp3" }
+
+[bundles]
+cucumber = ["cucumber-java", "cucumber-junit-platform-engine"]
+database = ["exposed-core", "exposed-jdbc", "h2"]
+junit5 = ["junit-jupiter-api", "junit-platform-suite"]
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
