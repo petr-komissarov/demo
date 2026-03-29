@@ -1,3 +1,5 @@
+includeBuild("build-logic")
+
 include(
     "plugin-common",
     "plugin-libs",

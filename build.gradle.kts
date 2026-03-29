@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.demo.conventions) apply false
 }
 
 tasks.wrapper {

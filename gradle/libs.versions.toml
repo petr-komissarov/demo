@@ -17,7 +17,7 @@ koin = "4.2.0"                           #  https://mvnrepository.com/artifact/i
 kotlin-jvm = "2.3.20"                    #  https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
 ktlint-plugin = "14.2.0"                 #  https://plugins.gradle.org/plugin/org.jlleitschuh.gradle.ktlint
 ktlint-tool = "1.8.0"                    #  https://github.com/pinterest/ktlint/releases
-ktor = "3.4.1"                           #  https://mvnrepository.com/artifact/io.ktor/ktor-client-core
+ktor = "3.4.2"                           #  https://mvnrepository.com/artifact/io.ktor/ktor-client-core
 mockk = "1.14.9"                         #  https://mvnrepository.com/artifact/io.mockk/mockk
 slf4j = "2.0.17"                         #  https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
 tinylog = "2.7.0"                        #  https://mvnrepository.com/artifact/org.tinylog/tinylog-api
@@ -34,6 +34,8 @@ json-kotlin-schema = { module = "net.pwall.json:json-kotlin-schema", version.ref
 kafka-clients = { module = "org.apache.kafka:kafka-clients", version.ref = "kafka-clients" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-core-coroutines = { module = "io.insert-koin:koin-core-coroutines", version.ref = "koin" }
+kotlin-jvm = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-jvm" }
+ktlint-plugin = { module = "org.jlleitschuh.gradle.ktlint:org.jlleitschuh.gradle.ktlint.gradle.plugin", version.ref = "ktlint-plugin" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
@@ -50,8 +52,7 @@ ktor = ["ktor-client-cio", "ktor-client-core", "ktor-client-content-negotiation"
 tinylog = ["tinylog-api", "tinylog-impl"]
 
 [plugins]
+demo-conventions = { id = "demo-conventions" }
 gradle-plugin-compatibility = { id = "org.gradle.plugin-compatibility", version.ref = "gradle-plugin-compatibility" }
 gradle-plugin-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-plugin-publish" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jvm" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-jvm" }
-ktlint-plugin = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-plugin" }
